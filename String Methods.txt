@@ -1,0 +1,324 @@
+public class Task2 {
+
+    private static String string;
+
+    public Task2(String s) {
+        string = s;
+    }
+
+    public static char charAt(int pos) {
+        System.out.println("Going to Perform 'CharAt'");
+        char result[] = string.toCharArray();
+        for (int i = 0; i < result.length; i++) {
+            if (i == pos) {
+                return result[i];
+            }
+        }
+        return '0';
+    }
+
+    public static int codePointAt(int pos) {
+        System.out.println("Going to Perform 'codePointAt'");
+        char result[] = string.toCharArray();
+        return (int) result[pos];
+    }
+
+    public static int codePointCount(int sPos, int ePos) {
+        System.out.println("Going to perform codePointCount");
+        char result[] = string.toCharArray();
+        int count = 0;
+        for (int i = sPos; i < ePos; i++) {
+            count++;
+        }
+        return count;
+    }
+
+    public static int codePointBefore(int pos) {
+        System.out.println("Going to perform codePointBefore");
+        char result[] = string.toCharArray();
+        if (pos > 0) {
+            return (int) result[pos - 1];
+        }
+        return 0;
+    }
+
+    public static boolean empty() {
+        System.out.println("Going to check string empty or not");
+        char result[] = string.toCharArray();
+        if (result.length > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static String replace(char ch, char rep) {
+        System.out.println("Going to Perform 'Replace'");
+        char result[] = string.toCharArray();
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] == ch) {
+                result[i] = rep;
+            }
+        }
+        String string = new String(result);
+        return string;
+    }
+
+    public static String replaceFirst(char ch, char rep) {
+        System.out.println("Going to perform replaceFirst");
+        char result[] = string.toCharArray();
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] == ch) {
+                result[i] = rep;
+                break;
+            }
+        }
+        String string = new String(result);
+        return string;
+    }
+
+    public static String concat(String myStr2) {
+        System.out.println("Going to Perform 'concat'");
+        return string + myStr2;
+
+    }
+
+    public static String toLowerCase() {
+        System.out.println("Going to Perform 'toLowerCase'");
+        char result[] = string.toCharArray();
+        char[] lower = new char[result.length];
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] >= 'A' && result[i] <= 'Z') {
+                lower[i] = (char) (result[i] + 32);
+            } else {
+                lower[i] = result[i];
+            }
+        }
+        String string1 = new String(lower);
+        return string1;
+    }
+
+    public static String ToLowerCase(String myStr) {
+        char result[] = myStr.toCharArray();
+        char[] lower = new char[result.length];
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] >= 'A' && result[i] <= 'Z') {
+                lower[i] = (char) (result[i] + 32);
+            } else {
+                lower[i] = result[i];
+            }
+        }
+        String string1 = new String(lower);
+        return string1;
+    }
+
+    public static String toUpperCase() {
+        System.out.println("Going to Perform 'toUpperCase'");
+        char result[] = string.toCharArray();
+        char[] lower = new char[result.length];
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] >= 'a' && result[i] <= 'z') {
+                lower[i] = (char) (result[i] - 32);
+            } else {
+                lower[i] = result[i];
+            }
+        }
+        String string1 = new String(lower);
+        return string1;
+    }
+
+    public String trim(){
+        int a = string.length();
+        int b=0;
+        String j="";
+        while(b<a && string.charAt(b)==' '){
+            b++;
+        }
+        while(a>b && string.charAt(a-1)==' '){
+            a--;
+        }
+        j=a>b ? substring(b,a):"";
+        return j;
+    }
+
+    public static String copyValueOf(int startPos, int endPos) {
+        System.out.println("Going to Perform 'copyValueOf'");
+        char result[] = string.toCharArray();
+        char[] lower = new char[result.length];
+        if (endPos <= result.length) {
+            int j = 0;
+            for (int i = startPos; i >= startPos && i <= endPos - 1; i++) {
+                lower[j] = result[i];
+                j++;
+            }
+        } else {
+            return "Length Exceeds";
+        }
+        String string1 = new String(lower);
+        return string1;
+    }
+
+        public static Boolean equals (String myStr2){
+            System.out.println("\n Going to Perform 'equals'");
+            char[] source = string.toCharArray();
+            char[] end = myStr2.toCharArray();
+            int flag = 0;
+            if (source.length == end.length) {
+                for (int i = 0; i < source.length; i++) {
+                    if (source[i] == end[i]) {
+                        flag++;
+                    }
+                }
+                if (flag == end.length) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        public static Boolean startsWith (String myStr2){
+            System.out.println("Going to Perform 'startsWith'");
+            char[] source = string.toCharArray();
+            char[] end = myStr2.toCharArray();
+            int flag = 0;
+            for (int i = 0; i < end.length; i++) {
+                if (source[i] == end[i]) {
+                    flag++;
+                }
+            }
+            if (flag == end.length) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public static boolean endsWith (String myStr2){
+            System.out.println("Going to Perform 'endsWith'");
+            char[] source = string.toCharArray();
+            char[] end = myStr2.toCharArray();
+            int flag = 0;
+            for (int i = (source.length - end.length); i < source.length; i++) {
+                if (source[i] == end[flag]) {
+                    flag++;
+                }
+            }
+            if (flag == end.length) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    public int compareTo(String str2) {
+
+        char[] stringArray=string.toCharArray();
+        char[] str2_Array=str2.toCharArray();
+        int str2_length=str2_Array.length;
+        for(int i=0;i<string.length();i++) {
+            if(stringArray[i]!= str2_Array[i]){
+                int Ascii_value_str=stringArray[i];
+                int Ascii_value_str2=str2_Array[i];
+                return Ascii_value_str-Ascii_value_str2;
+            }
+            if(string.length()!=str2_length) {
+                return string.length()-str2_length;
+            }
+        }
+        return 0;
+    }
+
+        public static int compareToIgnoreCase (String myStr2)
+        {
+            System.out.println("Going to Perform compareToIgnoreCase");
+            char[] source = (ToLowerCase(string)).toCharArray();
+            char[] end = (ToLowerCase(myStr2)).toCharArray();
+            int minlength2 = Math.min(source.length, end.length);
+            int j = 0;
+            int compareToIgnoreCaseResult = 0;
+            while (j < minlength2) {
+                if (source[j] != end[j]) {
+                    compareToIgnoreCaseResult = source[j] - end[j];
+                    return compareToIgnoreCaseResult;
+                }
+                j++;
+            }
+            return compareToIgnoreCaseResult;
+        }
+        public static int indexOf (String end){
+            System.out.println("Going to Perform IndexOf");
+            char[] strarray = string.toCharArray();
+            char[] tarArray = end.toCharArray();
+            int flag = 0;
+            int position = -1;
+            for (int i = 0; i < strarray.length; i++) {
+                if (flag == tarArray.length) {
+                    return position;
+                }
+                if (strarray[i] == tarArray[flag]) {
+                    if (position == -1) {
+                        position = i;
+                    }
+                    flag++;
+                } else {
+                    flag = 0;
+                    position = -1;
+                }
+                if (flag == tarArray.length) {
+                    return position;
+                }
+            }
+            return position;
+        }
+        public boolean contains (String str)
+        {
+            System.out.println("Going to perform contains");
+            char[] strarray = string.toCharArray();
+            char[] tarArray = str.toCharArray();
+            int flag = 0;
+            if (tarArray.length <= strarray.length) {
+                for (int i = 0; i < strarray.length; i++) {
+                    if (flag == tarArray.length) {
+                        return true;
+                    }
+                    if (strarray[i] == tarArray[flag]) {
+                        flag++;
+                    } else {
+                        flag = 0;
+                    }
+                }
+            }
+            if (flag == tarArray.length) {
+                return true;
+            }
+            return false;
+        }
+        public String substring ( int len)
+        {
+            System.out.println("Going to perform substring");
+            char[] strarray = string.toCharArray();
+            if (len <= strarray.length) {
+                char[] result = new char[strarray.length];
+                for (int i = len; i < strarray.length; i++) {
+                    result[i] = strarray[i];
+                }
+                String resultString = new String(result);
+                return resultString;
+            }
+            return null;
+        }
+        public String substring ( int startLen, int endLen)
+        {
+            char[] strarray = string.toCharArray();
+            if (startLen >= 0 && endLen <= strarray.length) {
+                char[] result = new char[strarray.length];
+                for (int i = startLen; i < endLen; i++) {
+                    result[i] = strarray[i];
+                }
+                String resultString = new String(result);
+                return resultString;
+            }
+            return null;
+        }
